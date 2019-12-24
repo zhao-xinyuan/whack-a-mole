@@ -1,0 +1,20 @@
+Final Project
+
+Description:
+1) Click the snowman by mouse to play the "Whack a mole"
+2) Press "S" or "s" to show day and night mode.
+
+Aspects of the project:
+1)"Whack a mole"
+Click the snowman by mouse. It will disppear and pop up from a new
+position immediately. If left alone, it will pop up from a new position
+after 3 seconds.
+
+2)The Simulation of Fire and Snow
+The Fire and Snow are simulated by a particle engine. As soon as the program starts, it is generated. It will be stable within a few seconds.
+
+3)Trees and castle
+Trees and castle are blender objects loaded into the scene. The trees have less vertices because they are low-ploy style.
+
+4)Day and night mode
+Press "S" or "s". The light will start to revolve around the scene showing the scene in day and night mode.

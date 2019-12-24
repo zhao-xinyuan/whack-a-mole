@@ -1,0 +1,60 @@
+#include"skybox.h"
+void skybox::bindtexture()
+{
+    texture[0]=LoadTexBMP("back.bmp");
+    texture[1]=LoadTexBMP("front.bmp");
+    texture[2]=LoadTexBMP("up.bmp");
+    texture[3]=LoadTexBMP("down.bmp");
+    texture[4]=LoadTexBMP("left.bmp");
+    texture[5]=LoadTexBMP("right.bmp");
+}
+
+void skybox::skyboxRender(float dim,float asp)
+{
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D,texture[0]);
+    glBegin(GL_QUADS);
+    glNormal3f(0.0,1.0,0.0);
+    glTexCoord2f(0.0,0.0);glVertex3f(-asp*dim,-dim,-dim);
+    glTexCoord2f(1.0,0.0);glVertex3f(asp*dim,-dim,-dim);
+    glTexCoord2f(1.0,1.0);glVertex3f(asp*dim,dim,-dim);
+    glTexCoord2f(0.0,1.0);glVertex3f(-asp*dim,dim,-dim);
+    glEnd();
+    glBindTexture(GL_TEXTURE_2D,texture[1]);
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0,0.0);glVertex3f(asp*dim,-dim,dim);
+    glTexCoord2f(1.0,0.0);glVertex3f(-asp*dim,-dim,dim);
+    glTexCoord2f(1.0,1.0);glVertex3f(-asp*dim,dim,dim);
+    glTexCoord2f(0.0,1.0);glVertex3f(asp*dim,dim,dim);
+    glEnd();
+    glBindTexture(GL_TEXTURE_2D,texture[2]);
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0,0.0);glVertex3f(asp*dim,dim,-dim);
+    glTexCoord2f(1.0,0.0);glVertex3f(asp*dim,dim,dim);
+    glTexCoord2f(1.0,1.0);glVertex3f(-asp*dim,dim,dim);
+    glTexCoord2f(0.0,1.0);glVertex3f(-asp*dim,dim,-dim);
+    glEnd();
+    glBindTexture(GL_TEXTURE_2D,texture[3]);
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0,0.0);glVertex3f(-asp*dim,-dim,-dim);
+    glTexCoord2f(1.0,0.0);glVertex3f(-asp*dim,-dim,dim);
+    glTexCoord2f(1.0,1.0);glVertex3f(asp*dim,-dim,dim);
+    glTexCoord2f(0.0,1.0);glVertex3f(asp*dim,-dim,-dim);
+    glEnd();
+    glBindTexture(GL_TEXTURE_2D,texture[4]);
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0,0.0);glVertex3f(-asp*dim,-dim,dim);
+    glTexCoord2f(1.0,0.0);glVertex3f(-asp*dim,-dim,-dim);
+    glTexCoord2f(1.0,1.0);glVertex3f(-asp*dim,dim,-dim);
+    glTexCoord2f(0.0,1.0);glVertex3f(-asp*dim,dim,dim);
+    glEnd();
+    glBindTexture(GL_TEXTURE_2D,texture[5]);
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0,0.0);glVertex3f(asp*dim,-dim,-dim);
+    glTexCoord2f(1.0,0.0);glVertex3f(asp*dim,-dim,dim);
+    glTexCoord2f(1.0,1.0);glVertex3f(asp*dim,dim,dim);
+    glTexCoord2f(0.0,1.0);glVertex3f(asp*dim,dim,-dim);
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
+}
+
